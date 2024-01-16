@@ -28,30 +28,18 @@ if submit == True:
     if isinstance (number, int):
         n = number
         x = []
-        if number <= 0:
-            textOutput = "Please input a number greater than 0."
 
-        elif number == 1:
-            textOutput = "The only factor of 1 is itself, [1]"
+        if number > 10000000:
+            textOutput = "Please input a number less than 100,000,000."
 
-        elif number == 2:
-            textOutput = "The factors of 2 are: [1, 2]"
-
-        elif number == 3:
-            textOutput = "The factors of 3 are: [1, 3]"
-
-        elif number > 10000000:
-            textOutput = "Please input a number below 100,000,000."
-
-        elif number > 3:
-            for i in range (1, number+1):
+        elif number <= 0:
+            textOutput = "Please input a number greater than 0"
+            
+        else:
+            for i in range (1, number + 1):
                 if number % i == 0:
                     x.append(i)
-
-            if x == [1, number]:
-                textOutput = "The factors of {nTemp} are: [1, {nTemp}]".format(nTemp = n)
-            else:
-                textOutput = "The factors of {nTemp} are: {xTemp}".format(nTemp = n, xTemp = x)
+            textOutput = "The factors of {nTemp} are: {xTemp}".format(nTemp = n, xTemp = x)
 
 container = st.container(border=True)
 container.write(textOutput)
